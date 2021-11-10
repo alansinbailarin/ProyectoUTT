@@ -12,6 +12,15 @@ use App\Models\Categoria;
  */
 class SubcategoriaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-subcategoria|crear-subcategoria|editar-subcategoria|borrar-subcategoria',['only'=>['index']]);
+        $this->middleware('permission:crear-subcategoria',['only'=>['create','store']]);
+        $this->middleware('permission:editar-subcategoria',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-subcategoria',['only'=>['destroy']]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *

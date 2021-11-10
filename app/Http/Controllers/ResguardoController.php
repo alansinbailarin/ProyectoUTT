@@ -13,6 +13,14 @@ use App\Models\Area;
  */
 class ResguardoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-resguardo|crear-resguardo|editar-resguardo|borrar-resguardo',['only'=>['index']]);
+        $this->middleware('permission:crear-resguardo',['only'=>['create','store']]);
+        $this->middleware('permission:editar-resguardo',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-resguardo',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

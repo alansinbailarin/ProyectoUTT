@@ -12,6 +12,14 @@ use Illuminate\Http\Request;
  */
 class PlantaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-planta|crear-planta|editar-planta|borrar-planta',['only'=>['index']]);
+        $this->middleware('permission:crear-planta',['only'=>['create','store']]);
+        $this->middleware('permission:editar-planta',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-planta',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

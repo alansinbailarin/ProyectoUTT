@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
  */
 class AreaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-area|crear-area|editar-area|borrar-area',['only'=>['index']]);
+        $this->middleware('permission:crear-area',['only'=>['create','store']]);
+        $this->middleware('permission:area-edificio',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-area',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

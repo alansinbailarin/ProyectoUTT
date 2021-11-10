@@ -12,6 +12,14 @@ use App\Models\Marca;
  */
 class ModeloController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-modelo|crear-modelo|editar-modelo|borrar-modelo',['only'=>['index']]);
+        $this->middleware('permission:crear-modelo',['only'=>['create','store']]);
+        $this->middleware('permission:editar-modelo',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-modelo',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

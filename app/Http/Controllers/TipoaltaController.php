@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
  */
 class TipoaltaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-tipoalta|crear-tipoalta|editar-tipoalta|borrar-tipoalta',['only'=>['index']]);
+        $this->middleware('permission:crear-tipoalta',['only'=>['create','store']]);
+        $this->middleware('permission:editar-tipoalta',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-tipoalta',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

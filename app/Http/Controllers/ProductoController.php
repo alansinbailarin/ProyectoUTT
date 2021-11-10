@@ -20,6 +20,14 @@ use DB;
  */
 class ProductoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-producto|crear-producto|editar-producto|borrar-producto',['only'=>['index']]);
+        $this->middleware('permission:crear-producto',['only'=>['create','store']]);
+        $this->middleware('permission:editar-producto',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-producto',['only'=>['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

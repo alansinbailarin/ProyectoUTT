@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
-
 @section('content')
-
-    <section class="section">
+<section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Edificios</h3>
+            <h3 class="page__heading">Plantas</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -17,12 +15,12 @@
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
-                            <div class="float-right">
-                                <a href="{{ route('edificios.create') }}" class="btn btn-warning">
+                                <div class="float-right">
+                                <a href="{{ route('plantas.create') }}" class="btn btn-warning">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
-                            
+                           
                                 <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover mt-2">
@@ -30,36 +28,27 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Nombre planta</th>
 										<th>Nombre Edificio</th>
-										<th>No.Teléfono</th>
-										<th>Email</th>
-										<th>Ubicación</th>
-										<th>Encargado de Edificio</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($edificios as $edificio)
+                                    @foreach ($plantas as $planta)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $edificio->name }}</td>
-											<td>{{ $edificio->number }}</td>
-											<td>{{ $edificio->email }}</td>
-											<td>{{ $edificio->ubicacion }}</td>
-											<td>
-                                                {{ $edificio->user->name}}
-                                            </td>
+											<td>{{ $planta->name }}</td>
+											<td>{{ $planta->edificio->name }}</td>
 
-                                            
                                             <td>
-                                                    @can('editar-edificio')
-                                                        <a class="btn btn-sm btn-success mt-2" href="{{ route('edificios.edit',$edificio->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            @can('editar-planta')
+                                                        <a class="btn btn-sm btn-success mt-2" href="{{ route('plantas.edit',$planta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @endcan
 
-                                                    @can('borrar-edificio')
-                                                    <form action="{{ route('edificios.destroy',$edificio->id) }}" method="POST"style="display:inline">
+                                                    @can('borrar-planta')
+                                                    <form action="{{ route('plantas.destroy',$planta->id) }}" method="POST"style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm mt-2" onclick="
@@ -72,15 +61,10 @@
                                 </tbody>
                             </table>
                         </div>
-
-                    </div>
-                    {!! $edificios->links() !!}
-                        </div>
                     </div>
                 </div>
+                {!! $plantas->links() !!}
             </div>
         </div>
-    </section>
+    </div>
 @endsection
-
-

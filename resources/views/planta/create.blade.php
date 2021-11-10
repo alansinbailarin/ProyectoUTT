@@ -7,7 +7,7 @@
 @section('content')
 <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Edificios</h3>
+            <h3 class="page__heading">Plantas</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -19,11 +19,11 @@
                         <span class="card-title">Crear</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('edificios.create', $edificio->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('plantas.create', $planta->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('edificio.form')
+                            @include('planta.form')
 
                         </form>
                 </div>

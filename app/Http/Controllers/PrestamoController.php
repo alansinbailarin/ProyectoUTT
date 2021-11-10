@@ -13,6 +13,15 @@ use App\Models\Area;
  */
 class PrestamoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-prestamo|crear-prestamo|editar-prestamo|borrar-modelo',['only'=>['index']]);
+        $this->middleware('permission:crear-prestamo',['only'=>['create','store']]);
+        $this->middleware('permission:editar-prestamo',['only'=>['edit','update']]);
+        $this->middleware('permission:borrar-prestamo',['only'=>['destroy']]);
+
+    }
+    
     /** 
      * Display a listing of the resource.
      *

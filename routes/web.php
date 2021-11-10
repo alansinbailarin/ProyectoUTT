@@ -5,6 +5,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\PlantaController;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ResguardoController;
+use App\Http\Controllers\PrestamoController;
+use App\Http\Controllers\tipoaltaController;
+use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\SubcategoriaController;
+use App\Http\Controllers\ModeloController;
+use App\Http\Controllers\ProductoController;
+
+
+
+
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------

@@ -12,7 +12,7 @@
                 <img alt="image" src="{{ asset('img/logo.png') }}"
                      class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
                 <div class="d-sm-none d-lg-inline-block">
-                    Hi, {{\Illuminate\Support\Facades\Auth::user()->first_name}}</div>
+                {{ Auth::user()->name }}</div>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right">
