@@ -55,8 +55,8 @@
 
 
     </div>
-<img src="http://localhost/Inventarioutt/public/assets/img/logos/logo.png" id="logo">
-<img src="http://localhost/Inventarioutt/public/assets/img/logos/juntos.png" id="imagenesp">
+<img src="{{ asset('img/logo.png')}}" id="logo">
+<img src="{{ asset('img/juntos.png') }}" id="imagenesp">
 </body>
 @endsection
 

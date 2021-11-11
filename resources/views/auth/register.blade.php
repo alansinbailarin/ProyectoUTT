@@ -68,12 +68,12 @@
         </form>
         <div class="bloqueright2">
 
-    <p id="textoprin2">Crea una cuenta para poder acceder a los registros del almacen de UTT.</p>
+    <p id="textoprin2"></p>
 
 
     </div>
-    <img src="http://localhost/Inventarioutt/public/assets/img/logos/logo.png" id="logo2">
-    <img src="http://localhost/Inventarioutt/public/assets/img/logos/allura.png" id="imagenesp2">
+    <img src="{{ asset('img/logo.png') }}" id="logo2">
+    <img src="{{ asset('img/allura.png') }}" id="imagenesp2">
  </div>
 
 </body class="container">
