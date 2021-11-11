@@ -57,9 +57,9 @@
 :root {
 
     --UTT: #651b2a;
-  
+
   }
-@import url("//fonts.googleapis.com/css?family=Nunito:400,600,700,800");
+@import url("//fonts.googleapis.com/css?family=Roboto:400,600,700,800");
 
 .btn:focus,
 .btn:active,
@@ -2743,7 +2743,7 @@ body {
     background-color: #f4f6f9;
     font-size: 14px;
     font-weight: 400;
-    font-family: "Nunito", "Segoe UI", arial;
+    font-family: "Roboto", "Segoe UI", arial;
     color: #6c757d;
 }
 
@@ -4153,7 +4153,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .bg-c-pink {
     background: linear-gradient(45deg,#ff869a, #FF5370);
 }
-.card {    
+.card {
     -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
     border: none;

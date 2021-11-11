@@ -1,68 +1,62 @@
-@extends('layouts.auth_app')
-@section('title')
-    Admin Login
-@endsection
+@extends('layouts.app2')
+
 @section('content')
-    <div class="card card-primary">
-        <div class="card-header"><h4>Admin Login</h4></div>
+<body id="bodylogin">
+    <!-- Inicio del header -->
 
-        <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                @if ($errors->any())
-                    <div class="alert alert-danger p-0">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input aria-describedby="emailHelpBlock" id="email" type="email"
-                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                           placeholder="Enter Email" tabindex="1"
-                           value="{{ (Cookie::get('email') !== null) ? Cookie::get('email') : old('email') }}" autofocus
-                           required>
-                    <div class="invalid-feedback">
-                        {{ $errors->first('email') }}
-                    </div>
-                </div>
+    <div class="cardback">
 
-                <div class="form-group">
-                    <div class="d-block">
-                        <label for="password" class="control-label">Password</label>
-                        <div class="float-right">
-                            <a href="{{ route('password.request') }}" class="text-small">
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </div>
-                    <input aria-describedby="passwordHelpBlock" id="password" type="password"
-                           value="{{ (Cookie::get('password') !== null) ? Cookie::get('password') : null }}"
-                           placeholder="Enter Password"
-                           class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}" name="password"
-                           tabindex="2" required>
-                    <div class="invalid-feedback">
-                        {{ $errors->first('password') }}
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="remember" class="custom-control-input" tabindex="3"
-                               id="remember"{{ (Cookie::get('remember') !== null) ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="remember">Remember Me</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Login
-                    </button>
-                </div>
-            </form>
-        </div>
     </div>
+    <!-- Contenedor principal -->
+    <div class="contenedor-log">
+        <p id="inicia-s">Inicia sesión</p>
+        <p id="ntc">No tienes una cuenta?</p>
+        @if (Route::has('register'))
+        <a id="reg" href="{{ route('register') }}">Registrate.</a>
+        @endif
+
+        <form class="formulario" method="POST" action="{{ route('login') }}">
+            @csrf
+            <input id="emailinp" type="email" placeholder="Ingresa tu email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="rgb(196, 196, 196)" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+            </svg>
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <br>
+            <br>
+            <input id="passinp" placeholder="Ingreas tu contraseña" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="rgb(196, 196, 196)" class="bi bi-lock-fill" viewBox="0 0 16 16">
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            </svg>
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <br>
+                                <input  type="checkbox" name="remember" id="recordarsesion {{ old('remember') ? 'checked' : '' }}" ><label for="check1">Recordar sesión</label>
+                                <button class="btniniciarsesion" type="submit">Iniciar sesión</button>
+                                    @if (Route::has('password.request'))
+                                <a id="olvidemicontra" href="{{ route('password.request') }}">Olvide mi contraseña</a>
+                                    @endif
+                            </form>
+
+
+    </div>
+
+    <!-- Bloque secundario -->
+    <div class="bloqueright">
+
+
+
+
+    </div>
+<img src="http://localhost/Inventarioutt/public/assets/img/logos/logo.png" id="logo">
+<img src="http://localhost/Inventarioutt/public/assets/img/logos/juntos.png" id="imagenesp">
+</body>
 @endsection
+
