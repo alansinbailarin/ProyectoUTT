@@ -9,8 +9,7 @@
         <li class="dropdown">
             <a href="#" data-toggle="dropdown"
                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('img/logo.png') }}"
-                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
+
                 <div class="d-sm-none d-lg-inline-block">
                 {{ Auth::user()->name }}</div>
             </a>
@@ -19,7 +18,7 @@
                 <div class="dropdown-title">
                     Bienvenido, {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
                 <a class="dropdown-item has-icon edit-profile" href="#" data-id="{{ \Auth::id() }}">
-                    <i class="fa fa-user"></i>Editar perfil</a>
+                    <i class="fa fa-user"></i>Editar Perfil</a>
                 <a class="dropdown-item has-icon" data-toggle="modal" data-target="#changePasswordModal" href="#" data-id="{{ \Auth::id() }}"><i
                             class="fa fa-lock"> </i>Cambiar contraseña</a>
                 <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"
