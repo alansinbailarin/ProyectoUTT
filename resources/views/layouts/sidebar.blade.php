@@ -1,7 +1,7 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
         <img class="navbar-brand-full app-header-logo" src="{{ asset('img/logo.png') }}" width="65"
-             alt="UTT Logo">
+             alt="Infyom Logo">
         <a href="{{ url('/') }}"></a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">

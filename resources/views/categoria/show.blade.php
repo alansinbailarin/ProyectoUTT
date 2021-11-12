@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $planta->name ?? 'Show Planta' }}
+    {{ $categoria->name ?? 'Show Categoria' }}
 @endsection
 
 @section('content')
@@ -11,22 +11,22 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Planta</span>
+                            <span class="card-title">Mostrar categoría</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('plantas.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('categorias.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nombre Planta:</strong>
-                            {{ $planta->name }}
+                            <strong>Nombre de categoría:</strong>
+                            {{ $categoria->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Nombre Edificio:</strong>
-                            {{ $planta->edificio-name }}
+                            <strong>Descripción:</strong>
+                            {{ $categoria->descripcion }}
                         </div>
 
                     </div>

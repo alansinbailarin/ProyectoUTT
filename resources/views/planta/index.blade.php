@@ -1,7 +1,10 @@
+
 @extends('layouts.app')
 
+
 @section('content')
-<section class="section">
+
+    <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Plantas</h3>
         </div>
@@ -15,15 +18,16 @@
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
-                                <div class="float-right">
+                            @can('crear-rol')
+                
+                            <div class="float-right">
                                 <a href="{{ route('plantas.create') }}" class="btn btn-warning">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
-                           
-                                <div class="card-body">
+                            @endcan
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover mt-2">
+                        <table class="table table-striped table-hover mt-2">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -43,7 +47,7 @@
 											<td>{{ $planta->edificio->name }}</td>
 
                                             <td>
-                                            @can('editar-planta')
+                                            @can('editar-planta]')
                                                         <a class="btn btn-sm btn-success mt-2" href="{{ route('plantas.edit',$planta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @endcan
 
@@ -61,10 +65,14 @@
                                 </tbody>
                             </table>
                         </div>
+
+                    </div class="pagination justify-content end">
+                    {!! $plantas ->links() !!}
+                    </div>
                     </div>
                 </div>
-                {!! $plantas->links() !!}
             </div>
         </div>
-    </div>
+    </section>
 @endsection
+

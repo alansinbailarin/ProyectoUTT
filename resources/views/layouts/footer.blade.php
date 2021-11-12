@@ -1,3 +1,3 @@
 <div class="footer-left">
-    UTT Derechos reservados &copy; {{ date('Y') }}
+    All rights reserved &copy; {{ date('Y') }}
 </div>

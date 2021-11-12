@@ -23,7 +23,7 @@
                               </div>
 
                               @endif
-
+                            
                                 {!! Form::model($user,['method'=>'PATCH','route'=>['usuarios.update',$user->id]])!!}
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="password">Contraseña</label>
+                                                <label for="password">Password</label>
                                                 {!! Form::password('password', array('class'=>'form-control'))!!}
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                                 {!! Form::select('roles[]',$roles,$userRole, array('class'=>'form-control'))!!}
                                             </div>
                                         </div>
-
+                                     
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>

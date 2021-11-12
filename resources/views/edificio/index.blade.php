@@ -12,18 +12,19 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                        @if ($message = Session::get('success'))
+                        @can('crear-rol')     
+                                <div class="float-right">
+                                    <a href="{{ route('plantas.create') }}" class="btn btn-warning">
+                                    {{ __('Create New') }}
+                                    </a>
+                                </div>
+                                @endcan
+                              @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
-                            <div class="float-right">
-                                <a href="{{ route('edificios.create') }}" class="btn btn-warning">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
-                            
-                                <div class="card-body">
+                        
                         <div class="table-responsive">
                             <table class="table table-striped table-hover mt-2">
                                 <thead class="thead">
